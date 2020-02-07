@@ -6,6 +6,10 @@ class Manager {
         menu = new Menu();
     }
 
+    public void run() {
+        menu.showMainMenu();
+    }
+
     /*public List<Item> getTodoList() {
         return todoList;
     }*/
