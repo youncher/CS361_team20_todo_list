@@ -8,6 +8,7 @@ class Manager {
     private Scanner scanner;
 
     public Manager() {
+        // instantiate todoList here
         menu = new Menu();
         this.prompt = "Select an option: ";
         scanner = new Scanner(System.in);
@@ -21,22 +22,26 @@ class Manager {
             switch (input) {
                 case 1:
                     System.out.println("Add todo item");
-                    //addNewItem();
+                    //addNewItem(); <-- call the addNewItem() method here
                     break;
                 case 2:
                     System.out.println("View todo list");
+                    // displayList(); <-- call the displayList() method here
                     break;
                 case 3:
                     System.out.println("Delete todo item");
+                    // deleteItem(); <-- call the deleteItem() method here
                     break;
                 case 4:
                     System.out.println("Edit todo item");
+                    // editItem(); <-- call the editItem() method here
                     break;
                 case 5:
                     System.out.println("Export list to file");
+                    // exportToFile(); <-- call the exportToFile() method here
                     break;
                 case 6:
-                    System.out.println("Quit");
+                    System.out.println("Quitting...");
                     System.exit(0);
                     break;
             }
