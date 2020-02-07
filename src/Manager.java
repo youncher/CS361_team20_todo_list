@@ -1,18 +1,18 @@
 class Manager {
-    private List<Item> todoList;
-    //private Menu;
+    //private List<Item> todoList;
+    private Menu menu;
 
     public Manager() {
-        // default constructor
+        menu = new Menu();
     }
 
-    public List<Item> getTodoList() {
+    /*public List<Item> getTodoList() {
         return todoList;
-    }
+    }*/
 
-    public void setTodoList(List<Item> todoList) {
+    /*public void setTodoList(List<Item> todoList) {
         this.todoList = todoList;
-    }
+    }*/
 
 
 }
