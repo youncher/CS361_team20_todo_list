@@ -5,5 +5,8 @@ public class Item {
         this.title = title;
     }
 
+    public void printItem(){
+        System.out.println(title);
+    }
 
 }
