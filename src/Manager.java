@@ -108,10 +108,10 @@ class Manager {
     /*public void setTodoList(List<Item> todoList) {
         this.todoList = todoList;
     }*/
-    void displayList(ArrayList<Item> todoList)
+    void displayList(ArrayList<Item> todoList)   // this is to display all the items in the list
     {
         for (int i = 0; i < todoList.size(); i++) {
-            System.out.println(todoList.get(i).toString());
+            System.out.println(todoList.get(i).toString()); //convert the item object to string
         }
     }
 
