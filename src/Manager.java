@@ -37,7 +37,7 @@ class Manager {
                     break;
                 case 2:
                     System.out.println("View todo list");
-                    // displayList(); <-- call the displayList() method here
+                     displayList(todoList); //<-- call the displayList() method here
                     break;
                 case 3:
                     System.out.println("Delete todo item");
@@ -108,6 +108,12 @@ class Manager {
     /*public void setTodoList(List<Item> todoList) {
         this.todoList = todoList;
     }*/
+    void displayList(ArrayList<Item> todoList)   // this is to display all the items in the list
+    {
+        for (int i = 0; i < todoList.size(); i++) {
+            System.out.println(todoList.get(i).toString()); //convert the item object to string
+        }
+    }
 
 
 }
