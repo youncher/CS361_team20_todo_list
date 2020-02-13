@@ -1,9 +1,6 @@
 public class Menu {
-    // private attribute 1
-    // private attribute 2
     private String appTitle;
     private String separator;
-    // public getter()
 
     public Menu() {
         this.separator = "---------------------------------";
@@ -24,10 +21,4 @@ public class Menu {
         System.out.println("\t6. Quit");
         System.out.println(separator);
     }
-
-//    public void showAddItemMenu() {
-//        System.out.println(“--------------\nAdd Item Menu 1. Aksdfjasjf. 2. Aisjflsjdf. 3. Sofoisjfdiosf Choose
-//        an option: );
-//
-//    }
 }
