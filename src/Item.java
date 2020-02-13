@@ -36,10 +36,17 @@ public class Item {
         return location;
     }
 
-    }
-    public String getPeople(){
+    public String getPeople() {
         StringBuffer sb = new StringBuffer();
-        for(String s: peopleList){            //For every string in people list
+
+        //For every string in people list
+        for (String s : peopleList) {
+            sb.append(s);
+            sb.append(" ");
+        }
+
+        String str = sb.toString();
+        return str;
     }
 
     public String getTitle(){
