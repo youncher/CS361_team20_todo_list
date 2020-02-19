@@ -3,16 +3,15 @@ import java.util.Scanner;
 
 class Manager {
 
-    //private ArrayList<Item> todoList;
     private Menu menu;
     private String prompt;
     private Scanner scanner;
 
-    public Manager() {
-        //ArrayList<Item> todoList = new ArrayList<Item>();       // instantiate todoList here
+    public Manager(ArrayList<Item> todoList) {
         menu = new Menu();
         this.prompt = "Select an option: ";
         scanner = new Scanner(System.in);
+        run(todoList);
     }
 
     public void run(ArrayList<Item> todoList) {
@@ -23,11 +22,31 @@ class Manager {
             switch (input) {
                 case 1:
                     String itemTitle;
+                    String itemLocation;
+                    int itemNumPeople;
+
                     System.out.println("Add todo item");
-                    System.out.println("Input Item Title: ");
+                    System.out.println("Input Item Title (Required): ");
                     itemTitle = scanner.nextLine();
+
                     Item item1 = new Item(itemTitle);
                     todoList.add(item1);
+
+                    //Edit Matt 2.11.2020
+                    System.out.println("Input Item Location: ");
+                    itemLocation = scanner.nextLine();
+                    item1.addLocation(itemLocation);
+
+                    System.out.println("How Many People would you like to add to this item? ");
+                    itemNumPeople = scanner.nextInt();
+                    item1.setNumPeople(itemNumPeople);
+                    for(int i = 0; i < itemNumPeople; i++){
+                        scanner = new Scanner(System.in);
+                        System.out.println("Enter Name of Person " + (i + 1) + ":");
+                        String person = scanner.nextLine();
+                        item1.addPerson(person);
+                    }
+
 
                     /*For testing purposes.  Prints the current to do list after a new item is entered.
                     for(int i = 0; i < todoList.size(); i++){
@@ -37,7 +56,8 @@ class Manager {
                     break;
                 case 2:
                     System.out.println("View todo list");
-                     displayList(todoList); //<-- call the displayList() method here
+                    // displayList(); <-- call the displayList() method here
+                    displayList(todoList); //<-- call the displayList() method here
                     break;
                 case 3:
                     System.out.println("Delete todo item");
@@ -67,53 +87,10 @@ class Manager {
         return input;
     }
 
-    //Add item function
-   /* public void addItem(ArrayList<Item> tList){
-        Scanner scanner = new Scanner(System.in);
-        int option;
-
-        String title;
-        int year;
-        float rating;
-
-        option = scanner.nextInt();
-        scanner.nextLine();
-
-        if(option == 1){
-            System.out.println("Input Title: ");
-            title = scanner.nextLine();
-            System.out.println("Input Year: ");
-            year = scanner.nextInt();
-            System.out.println("Input Rating: ");
-            rating = scanner.nextFloat();
-
-            Movie mov = new Movie(title, year, rating);
-
-            aList.add(mov);
-
-            for(int i = 0; i < aList.size(); i++){
-                aList.get(i).printMovie();
-            }
-            menu(aList);
-        }
-        else if (option == 2){
-            System.out.println("Goodbye!! ");
-        }
-    }  */
-
-    /*public List<Item> getTodoList() {
-        return todoList;
-    }*/
-
-    /*public void setTodoList(List<Item> todoList) {
-        this.todoList = todoList;
-    }*/
-    void displayList(ArrayList<Item> todoList)   // this is to display all the items in the list
+    void displayList(ArrayList<Item> todoList)
     {
         for (int i = 0; i < todoList.size(); i++) {
-            System.out.println(todoList.get(i).toString()); //convert the item object to string
+            System.out.println(todoList.get(i).toString());
         }
     }
-
-
 }

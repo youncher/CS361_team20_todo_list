@@ -5,8 +5,7 @@ public class TodoList {
         ArrayList<Item> todoList = new ArrayList<Item>();
 
         //Manager
-        Manager manager = new Manager();
-        manager.run(todoList);
+        Manager manager = new Manager(todoList);
 
     }
 }
