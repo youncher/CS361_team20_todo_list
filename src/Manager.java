@@ -72,6 +72,10 @@ class Manager {
                     // exportToFile(); <-- call the exportToFile() method here
                     break;
                 case 6:
+                    System.out.println("Mark as completed");
+                    markComplete(todoList);
+                    break;
+                case 7:
                     System.out.println("Quitting...");
                     System.exit(0);
                     break;
@@ -90,7 +94,14 @@ class Manager {
     void displayList(ArrayList<Item> todoList)
     {
         for (int i = 0; i < todoList.size(); i++) {
-            System.out.println(todoList.get(i).toString());
+            System.out.println(i + 1 + ". " + todoList.get(i).toString());
         }
+    }
+
+    void markComplete(ArrayList<Item> todoList) {
+        displayList(todoList);
+        System.out.println("Which item do you want to mark as complete?");
+        int input = getInput();
+        todoList.get(input - 1).setCompleted();
     }
 }

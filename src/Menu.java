@@ -18,7 +18,8 @@ public class Menu {
         System.out.println("\t3. Delete todo item");
         System.out.println("\t4. Edit todo item");
         System.out.println("\t5. Export list to file");
-        System.out.println("\t6. Quit");
+        System.out.println("\t6. Mark todo item as complete");
+        System.out.println("\t7. Quit");
         System.out.println(separator);
     }
 }

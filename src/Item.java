@@ -11,6 +11,8 @@ public class Item {
     private String dueDate;
     private String priority;
 
+    private boolean completed;
+
     public Item(String title) {
         this.title = title;
         peopleList = new ArrayList<String>();
@@ -29,7 +31,13 @@ public class Item {
 
     @Override
     public String toString() {
-        return getTitle() + " " + getLocation() + " " + getPeople() + " " + getDueDate() + " " + getPriority();
+        String todoItem = getTitle() + " " + getLocation() + " " + getPeople() + " " + getDueDate() + " " + getPriority();
+
+        if (this.completed) {
+            todoItem = "(Completed) " + todoItem;
+        }
+
+        return todoItem;
     }
 
     public String getLocation(){
@@ -62,5 +70,13 @@ public class Item {
 
     public String getPriority(){
         return priority;
+    }
+
+    public boolean isCompleted() {
+        return completed;
+    }
+
+    public void setCompleted() {
+        this.completed = true;
     }
 }
