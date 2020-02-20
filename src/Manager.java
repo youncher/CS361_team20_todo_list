@@ -109,9 +109,9 @@ class Manager {
     private void editItem(ArrayList<Item> todoList) {
         Item item1 = new Item("Play Codename Duet");
         item1.addLocation("Home");
-        item1.setNumPeople(2);
-        item1.addPerson("Larry");
-        item1.addPerson("David");
+//        item1.setNumPeople(2);
+//        item1.addPerson("Larry");
+//        item1.addPerson("David");
         item1.setCompleted();
         todoList.add(item1);
 
@@ -122,6 +122,7 @@ class Manager {
         Item selectedItem = todoList.get(input-1);
         ArrayList<String> peopleList = selectedItem.getPeopleList();
         int numPeople = peopleList.size();
+        System.out.println("\n\n---------------------------------");
         System.out.println("Edit Menu\n");
         System.out.println("1. Title: " + selectedItem.getTitle());
         System.out.println("2. Location: " + selectedItem.getLocation());
@@ -129,19 +130,51 @@ class Manager {
             int itemNum = 3 + i;
             System.out.println(itemNum + ". Person" + (i + 1) + ": " + peopleList.get(i));
         }
-        //System.out.println("3. Number of people: " + selectedItem.);
-        System.out.println("Edit Menu\n");
+        System.out.println((3+numPeople) + ". Completed: " + selectedItem.isCompleted());
+        System.out.println((4+numPeople) + ". Due Date: " + selectedItem.getDueDate());
+        System.out.println((5+numPeople) + ". Priority: " + selectedItem.getPriority());
+        System.out.println((6+numPeople) + ". Back to Main Menu\n\n");
+        System.out.println("---------------------------------");
+        input = getInput();
+
+        if(input == 1) {
+            // edit title
+        } else if (input == 2) {
+            // edit location
+        }
+
+        if(numPeople == 0)
+        {
+            // setup one type of switch
+
+            ////// without people
+            // case 3: completed
+            // case 4: due date
+            // case 5: priority
+            // case 6: back to main
+        }
+        else
+        {
+            ////// with people
+            // let's say 2 people
+
+            // if choice was 3 to 3 + numPeople-1 (3 to 4) then index into peopleList
+            // case 3 + numPeople: {completed}
+            // case 4 + numPeople: {due date}
+            // case 5 + numPeople: {priority}
+            // case 6 + numPeople: {back to main}
+        }
+
+
+
+
+
 
 
         // setIncomplete()
 
-               /* "\n" +
-                "Title: Play Codenames Duet\n" +
-                "Tag: Fun\n" +
-                "Due Date: (could leave blank, could say “None”)\n" +
-                "Priority: True\n" +
-                "Cancel (or “Back to Main Menu” or “Exit Edit Menu”?)\n");
 
+/*
     private String title;
 
     //Matt Edits 2.11.20
@@ -153,11 +186,11 @@ class Manager {
     private String priority;
 
     private boolean completed;
+*/
 
 
 
 
 
-                */
     }
 }
