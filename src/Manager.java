@@ -103,13 +103,51 @@ class Manager {
         System.out.println("Which item do you want to mark as complete?");
         int input = getInput();
         todoList.get(input - 1).setCompleted();
+
     }
 
     private void editItem(ArrayList<Item> todoList) {
         Item item1 = new Item("test");
         todoList.add(item1);
+
         System.out.println("\n\n\n");
         displayList(todoList);
-        System.out.println("Which item do you want to edit?");
+        System.out.println("Which item do you want to edit? ");
+        int input = getInput();
+        Item selectedItem = todoList.get(input-1);
+        //System.out.println(selectedItem.toString());
+        System.out.println("Edit Menu\n");
+        System.out.println("1. Title: " + "title here");
+        System.out.println("2. Location: TODO LATER");
+        System.out.println("Edit Menu\n");
+        System.out.println("Edit Menu\n");
+
+
+        // setIncomplete()
+
+               /* "\n" +
+                "Title: Play Codenames Duet\n" +
+                "Tag: Fun\n" +
+                "Due Date: (could leave blank, could say “None”)\n" +
+                "Priority: True\n" +
+                "Cancel (or “Back to Main Menu” or “Exit Edit Menu”?)\n");
+
+    private String title;
+
+    //Matt Edits 2.11.20
+    private String location;
+    private int numPeople;
+    private ArrayList<String> peopleList;
+
+    private String dueDate;
+    private String priority;
+
+    private boolean completed;
+
+
+
+
+
+                */
     }
 }

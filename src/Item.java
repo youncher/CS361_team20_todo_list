@@ -79,4 +79,6 @@ public class Item {
     public void setCompleted() {
         this.completed = true;
     }
+
+    public void setIncomplete() { this.completed = false; }
 }
