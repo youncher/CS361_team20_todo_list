@@ -64,8 +64,8 @@ class Manager {
                     // deleteItem(); <-- call the deleteItem() method here
                     break;
                 case 4:
-                    System.out.println("Edit todo item");
-                    // editItem(); <-- call the editItem() method here
+                    //System.out.println("Edit todo item");
+                    editItem(todoList);
                     break;
                 case 5:
                     System.out.println("Export list to file");
@@ -103,5 +103,13 @@ class Manager {
         System.out.println("Which item do you want to mark as complete?");
         int input = getInput();
         todoList.get(input - 1).setCompleted();
+    }
+
+    private void editItem(ArrayList<Item> todoList) {
+        Item item1 = new Item("test");
+        todoList.add(item1);
+        System.out.println("\n\n\n");
+        displayList(todoList);
+        System.out.println("Which item do you want to edit?");
     }
 }
