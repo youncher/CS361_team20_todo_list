@@ -107,13 +107,14 @@ class Manager {
     }
 
     private void editItem(ArrayList<Item> todoList) {
-        Item item1 = new Item("Play Codename Duet");
-        item1.addLocation("Home");
-        item1.setNumPeople(2);
-        item1.addPerson("Larry");
-        item1.addPerson("David");
-        item1.setCompleted();
-        todoList.add(item1);
+//        For testing purposes
+//        Item item1 = new Item("Play Codename Duet");
+//        item1.addLocation("Home");
+//        item1.setNumPeople(2);
+//        item1.addPerson("Larry");
+//        item1.addPerson("David");
+//        item1.setCompleted();
+//        todoList.add(item1);
 
         System.out.println("\n\n\n");
         displayList(todoList);
@@ -159,11 +160,8 @@ class Manager {
                     default:
                 }
             } else {
-                ////// with people
-                // let's say 2 people
-
-                // if choice was 3 to 2 + numPeople (3 to 4) then index into peopleList
-                if (input == 100000) {
+                if (input > 2 &&  input <= (2 + numPeople)) {
+                    editPerson(input, todoList, index);
                     // do something
                 } else if(input == (3 + numPeople)) {
                     editCompleted(todoList, index);
@@ -188,6 +186,14 @@ class Manager {
         System.out.print("Enter new location: ");
         String newLocation = scanner.nextLine();
         todoList.get(index - 1).setLocation(newLocation);
+    }
+
+    private void editPerson(int personIndex, ArrayList<Item> todoList, int itemIndex) {
+        System.out.print("Enter new person: ");
+        String newPerson = scanner.nextLine();
+        // Item index gets the correct item. Person index gets the correct person in that item's people list
+        todoList.get(itemIndex - 1).getPeopleList().set(personIndex - 3, newPerson);
+
     }
 
     private void editCompleted(ArrayList<Item> todoList, int index) {
