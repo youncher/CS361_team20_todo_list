@@ -109,15 +109,15 @@ class Manager {
     private void editItem(ArrayList<Item> todoList) {
         Item item1 = new Item("Play Codename Duet");
         item1.addLocation("Home");
-//        item1.setNumPeople(2);
-//        item1.addPerson("Larry");
-//        item1.addPerson("David");
+        item1.setNumPeople(2);
+        item1.addPerson("Larry");
+        item1.addPerson("David");
         item1.setCompleted();
         todoList.add(item1);
 
         System.out.println("\n\n\n");
         displayList(todoList);
-        System.out.println("Which item do you want to edit? ");
+        System.out.println("\nWhich item do you want to edit? ");
         int index = getInput();
         Item selectedItem = todoList.get(index-1);
         ArrayList<String> peopleList = selectedItem.getPeopleList();
@@ -146,37 +146,36 @@ class Manager {
 
                 switch (input) {
                     case 3:
-                        //editCompleted(todoList, index);
+                        editCompleted(todoList, index);
                         break;
                     case 4:
+                        System.out.println("TODO editDueDate");
                         //editDueDate(todoList, index);
                         break;
                     case 5:
+                        System.out.println("TODO editPriority");
                         //editPriority(todoList, index);
                         break;
                     default:
-
-                        // setup one type of switch
-
-                        ////// without people
-                        // case 3: completed
-                        // case 4: due date
-                        // case 5: priority
-                        // case 6: back to main
                 }
             } else {
                 ////// with people
                 // let's say 2 people
 
-                // if choice was 3 to 3 + numPeople-1 (3 to 4) then index into peopleList
-                // case 3 + numPeople: {completed}
-                // case 4 + numPeople: {due date}
-                // case 5 + numPeople: {priority}
-                // case 6 + numPeople: {back to main}
+                // if choice was 3 to 2 + numPeople (3 to 4) then index into peopleList
+                if (input == 100000) {
+                    // do something
+                } else if(input == (3 + numPeople)) {
+                    editCompleted(todoList, index);
+                } else if(input == (4 + numPeople)) {
+                    System.out.println("TODO editDueDate");
+                    //editDueDate(todoList, index);
+                } else if(input == (5 + numPeople)) {
+                    System.out.println("TODO editPriority");
+                    //editPriority(todoList, index);
                 }
-
+            }
         }
-            // setIncomplete()
     }
 
     private void editTitle(ArrayList<Item> todoList, int index) {
@@ -189,5 +188,21 @@ class Manager {
         System.out.print("Enter new location: ");
         String newLocation = scanner.nextLine();
         todoList.get(index - 1).setLocation(newLocation);
+    }
+
+    private void editCompleted(ArrayList<Item> todoList, int index) {
+        if(todoList.get(index - 1).isCompleted()) {
+            todoList.get(index - 1).setIncomplete();
+        } else {
+            todoList.get(index - 1).setCompleted();
+        }
+    }
+
+    private void editDueDate(ArrayList<Item> todoList, int index) {
+        // TODO
+    }
+
+    private void editPriority(ArrayList<Item> todoList, int index) {
+        // TODO
     }
 }
