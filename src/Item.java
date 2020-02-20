@@ -14,7 +14,7 @@ public class Item {
     private boolean completed;
 
     public Item(String title) {
-        this.title = title;
+        setTitle(title);
         peopleList = new ArrayList<String>();
     }
 
@@ -76,6 +76,10 @@ public class Item {
     public boolean isCompleted() {
         return completed;
     }
+
+    public void setTitle(String title) {this.title = title; }
+
+    public void setLocation(String location) {this.location = location; }
 
     public void setCompleted() {
         this.completed = true;
