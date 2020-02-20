@@ -28,6 +28,7 @@ public class Item {
     public void addPerson(String str){
         peopleList.add(str);
     }
+    public ArrayList<String> getPeopleList() { return peopleList; }
 
     @Override
     public String toString() {

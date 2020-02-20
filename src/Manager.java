@@ -107,7 +107,12 @@ class Manager {
     }
 
     private void editItem(ArrayList<Item> todoList) {
-        Item item1 = new Item("test");
+        Item item1 = new Item("Play Codename Duet");
+        item1.addLocation("Home");
+        item1.setNumPeople(2);
+        item1.addPerson("Larry");
+        item1.addPerson("David");
+        item1.setCompleted();
         todoList.add(item1);
 
         System.out.println("\n\n\n");
@@ -115,11 +120,16 @@ class Manager {
         System.out.println("Which item do you want to edit? ");
         int input = getInput();
         Item selectedItem = todoList.get(input-1);
-        //System.out.println(selectedItem.toString());
+        ArrayList<String> peopleList = selectedItem.getPeopleList();
+        int numPeople = peopleList.size();
         System.out.println("Edit Menu\n");
-        System.out.println("1. Title: " + "title here");
-        System.out.println("2. Location: TODO LATER");
-        System.out.println("Edit Menu\n");
+        System.out.println("1. Title: " + selectedItem.getTitle());
+        System.out.println("2. Location: " + selectedItem.getLocation());
+        for (int i = 0; i < numPeople; i++) {
+            int itemNum = 3 + i;
+            System.out.println(itemNum + ". Person" + (i + 1) + ": " + peopleList.get(i));
+        }
+        //System.out.println("3. Number of people: " + selectedItem.);
         System.out.println("Edit Menu\n");
 
 
