@@ -46,17 +46,8 @@ class Manager {
                         String person = scanner.nextLine();
                         item1.addPerson(person);
                     }
-
-
-                    /*For testing purposes.  Prints the current to do list after a new item is entered.
-                    for(int i = 0; i < todoList.size(); i++){
-                        todoList.get(i).printItem();
-                    }*/
-                    //todoList.addItem(item); <-- call the addNewItem() method here
                     break;
                 case 2:
-                    System.out.println("View todo list");
-                    // displayList(); <-- call the displayList() method here
                     displayList(todoList); //<-- call the displayList() method here
                     break;
                 case 3:
@@ -64,7 +55,6 @@ class Manager {
                     // deleteItem(); <-- call the deleteItem() method here
                     break;
                 case 4:
-                    //System.out.println("Edit todo item");
                     editItem(todoList);
                     break;
                 case 5:
@@ -72,16 +62,29 @@ class Manager {
                     // exportToFile(); <-- call the exportToFile() method here
                     break;
                 case 6:
-                    System.out.println("Mark as completed");
                     markComplete(todoList);
                     break;
                 case 7:
+                    addFakeItem(todoList);
+                    break;
+                case 8:
                     System.out.println("Quitting...");
                     System.exit(0);
                     break;
             }
             System.out.println();
         }
+    }
+
+    private void addFakeItem(ArrayList<Item> todoList) {
+        //        For testing purposes
+//        Item item1 = new Item("Play Codename Duet");
+//        item1.addLocation("Home");
+//        item1.setNumPeople(2);
+//        item1.addPerson("Larry");
+//        item1.addPerson("David");
+//        item1.setCompleted();
+//        todoList.add(item1);
     }
 
     private int getInput() {
@@ -107,15 +110,6 @@ class Manager {
     }
 
     private void editItem(ArrayList<Item> todoList) {
-//        For testing purposes
-//        Item item1 = new Item("Play Codename Duet");
-//        item1.addLocation("Home");
-//        item1.setNumPeople(2);
-//        item1.addPerson("Larry");
-//        item1.addPerson("David");
-//        item1.setCompleted();
-//        todoList.add(item1);
-
         System.out.println("\n\n\n");
         displayList(todoList);
         System.out.println("\nWhich item do you want to edit? ");
