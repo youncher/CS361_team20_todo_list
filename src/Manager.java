@@ -21,31 +21,7 @@ class Manager {
 
             switch (input) {
                 case 1:
-                    String itemTitle;
-                    String itemLocation;
-                    int itemNumPeople;
-
-                    System.out.println("Add todo item");
-                    System.out.println("Input Item Title (Required): ");
-                    itemTitle = scanner.nextLine();
-
-                    Item item1 = new Item(itemTitle);
-                    todoList.add(item1);
-
-                    //Edit Matt 2.11.2020
-                    System.out.println("Input Item Location: ");
-                    itemLocation = scanner.nextLine();
-                    item1.addLocation(itemLocation);
-
-                    System.out.println("How Many People would you like to add to this item? ");
-                    itemNumPeople = scanner.nextInt();
-                    item1.setNumPeople(itemNumPeople);
-                    for(int i = 0; i < itemNumPeople; i++){
-                        scanner = new Scanner(System.in);
-                        System.out.println("Enter Name of Person " + (i + 1) + ":");
-                        String person = scanner.nextLine();
-                        item1.addPerson(person);
-                    }
+                    addTodoItem(todoList);
                     break;
                 case 2:
                     displayList(todoList); //<-- call the displayList() method here
@@ -92,6 +68,34 @@ class Manager {
         int input = scanner.nextInt();
         scanner.nextLine();
         return input;
+    }
+
+    void addTodoItem(ArrayList<Item> todoList) {
+        String itemTitle;
+        String itemLocation;
+        int itemNumPeople;
+
+        System.out.println("Add todo item");
+        System.out.println("Input Item Title (Required): ");
+        itemTitle = scanner.nextLine();
+
+        Item item1 = new Item(itemTitle);
+        todoList.add(item1);
+
+        //Edit Matt 2.11.2020
+        System.out.println("Input Item Location: ");
+        itemLocation = scanner.nextLine();
+        item1.addLocation(itemLocation);
+
+        System.out.println("How Many People would you like to add to this item? ");
+        itemNumPeople = scanner.nextInt();
+        item1.setNumPeople(itemNumPeople);
+        for(int i = 0; i < itemNumPeople; i++){
+            scanner = new Scanner(System.in);
+            System.out.println("Enter Name of Person " + (i + 1) + ":");
+            String person = scanner.nextLine();
+            item1.addPerson(person);
+        }
     }
 
     void displayList(ArrayList<Item> todoList)
