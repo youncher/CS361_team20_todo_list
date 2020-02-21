@@ -62,7 +62,7 @@ class Manager {
                     // exportToFile(); <-- call the exportToFile() method here
                     break;
                 case 6:
-                    markComplete(todoList);
+                    toggleComplete(todoList);
                     break;
                 case 7:
                     addFakeItem(todoList);
@@ -76,15 +76,15 @@ class Manager {
         }
     }
 
+    //        For testing purposes
     private void addFakeItem(ArrayList<Item> todoList) {
-        //        For testing purposes
-//        Item item1 = new Item("Play Codename Duet");
-//        item1.addLocation("Home");
-//        item1.setNumPeople(2);
-//        item1.addPerson("Larry");
-//        item1.addPerson("David");
-//        item1.setCompleted();
-//        todoList.add(item1);
+        Item item1 = new Item("Play Codename Duet" + todoList.size() + 1);
+        item1.addLocation("Home");
+        item1.setNumPeople(2);
+        item1.addPerson("Larry");
+        item1.addPerson("David");
+        item1.toggleComplete();
+        todoList.add(item1);
     }
 
     private int getInput() {
@@ -101,11 +101,11 @@ class Manager {
         }
     }
 
-    void markComplete(ArrayList<Item> todoList) {
+    void toggleComplete(ArrayList<Item> todoList) {
         displayList(todoList);
-        System.out.println("Which item do you want to mark as complete?");
+        System.out.println("Which item do you want to mark as complete/incomplete?");
         int input = getInput();
-        todoList.get(input - 1).setCompleted();
+        todoList.get(input - 1).toggleComplete();
 
     }
 
@@ -194,7 +194,7 @@ class Manager {
         if(todoList.get(index - 1).isCompleted()) {
             todoList.get(index - 1).setIncomplete();
         } else {
-            todoList.get(index - 1).setCompleted();
+            todoList.get(index - 1).toggleComplete();
         }
     }
 

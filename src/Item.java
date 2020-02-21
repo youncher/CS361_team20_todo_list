@@ -81,8 +81,12 @@ public class Item {
 
     public void setLocation(String location) {this.location = location; }
 
-    public void setCompleted() {
-        this.completed = true;
+    public void toggleComplete() {
+        if(this.completed) {
+            this.completed = false;
+        } else {
+            this.completed = true;
+        }
     }
 
     public void setIncomplete() { this.completed = false; }
