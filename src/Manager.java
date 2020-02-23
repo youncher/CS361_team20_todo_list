@@ -28,7 +28,7 @@ class Manager {
                     break;
                 case 3:
                     System.out.println("Delete todo item");
-                    // deleteItem(); <-- call the deleteItem() method here
+                    deleteItem(todoList); //<-- call the deleteItem() method here
                     break;
                 case 4:
                     editItem(todoList);
@@ -208,5 +208,20 @@ class Manager {
 
     private void editPriority(ArrayList<Item> todoList, int index) {
         // TODO
+    }
+
+    private void deleteItem(ArrayList<Item> todoList) {
+        System.out.println("\n\n\n");
+        displayList(todoList);
+        System.out.println("\nWhich item do you want to delete? ");
+        int index = getInput();
+        // Displayed index is 1-based, but todoList is 0-based.
+        if (index < 1 || index > todoList.size()) {
+            System.out.println("\nIndex out of range. ");
+            return;
+        }
+        todoList.remove(index - 1);
+        System.out.println("\nItem " + index + " deleted.");
+        displayList(todoList);
     }
 }
