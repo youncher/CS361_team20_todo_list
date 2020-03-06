@@ -118,57 +118,58 @@ class Manager {
         displayList(todoList);
         System.out.println("\nWhich item do you want to edit? ");
         int index = getInput();
-        Item selectedItem = todoList.get(index-1);
+        Item selectedItem = todoList.get(index - 1);
         ArrayList<String> peopleList = selectedItem.getPeopleList();
         int numPeople = peopleList.size();
-        System.out.println("\n\n---------------------------------");
-        System.out.println("Edit Menu\n");
-        System.out.println("1. Title: " + selectedItem.getTitle());
-        System.out.println("2. Location: " + selectedItem.getLocation());
-        for (int i = 0; i < numPeople; i++) {
-            int itemNum = 3 + i;
-            System.out.println(itemNum + ". Person" + (i + 1) + ": " + peopleList.get(i));
-        }
-        System.out.println((3+numPeople) + ". Completed: " + selectedItem.isCompleted());
-        System.out.println((4+numPeople) + ". Due Date: " + selectedItem.getDueDate());
-        System.out.println((5+numPeople) + ". Priority: " + selectedItem.getPriority());
-        System.out.println((6+numPeople) + ". Back to Main Menu\n\n");
-        System.out.println("---------------------------------");
-        int input = getInput();
 
-        if(input == 1) {
-            editTitle(todoList, index);
-        } else if (input == 2) {
-            editLocation(todoList, index);
-        } else {
-            if (numPeople == 0) {
+        while (true) {
+            System.out.println("\n\n---------------------------------");
+            System.out.println("Edit Menu\n");
+            System.out.println("1. Title: " + selectedItem.getTitle());
+            System.out.println("2. Location: " + selectedItem.getLocation());
+            for (int i = 0; i < numPeople; i++) {
+                int itemNum = 3 + i;
+                System.out.println(itemNum + ". Person" + (i + 1) + ": " + peopleList.get(i));
+            }
+            System.out.println((3 + numPeople) + ". Completed: " + selectedItem.isCompleted());
+            System.out.println((4 + numPeople) + ". Due Date: " + selectedItem.getDueDate());
+            System.out.println((5 + numPeople) + ". Priority: " + selectedItem.getPriority());
+            System.out.println((6 + numPeople) + ". Back to Main Menu\n\n");
+            System.out.println("---------------------------------");
+            int input = getInput();
 
-                switch (input) {
-                    case 3:
+            if (input == 1) {
+                editTitle(todoList, index);
+            } else if (input == 2) {
+                editLocation(todoList, index);
+            } else {
+                if (numPeople == 0) {
+                    if (input == 3) {
                         editCompleted(todoList, index);
-                        break;
-                    case 4:
+                    } else if (input == 4) {
                         System.out.println("TODO editDueDate");
                         //editDueDate(todoList, index);
-                        break;
-                    case 5:
+                    } else if (input == 5) {
                         System.out.println("TODO editPriority");
                         //editPriority(todoList, index);
+                    } else { // Everything else exits edit menu
                         break;
-                    default:
-                }
-            } else {
-                if (input > 2 &&  input <= (2 + numPeople)) {
-                    editPerson(input, todoList, index);
-                    // do something
-                } else if(input == (3 + numPeople)) {
-                    editCompleted(todoList, index);
-                } else if(input == (4 + numPeople)) {
-                    System.out.println("TODO editDueDate");
-                    //editDueDate(todoList, index);
-                } else if(input == (5 + numPeople)) {
-                    System.out.println("TODO editPriority");
-                    //editPriority(todoList, index);
+                    }
+                } else {
+                    if (input > 2 && input <= (2 + numPeople)) {
+                        editPerson(input, todoList, index);
+                        // do something
+                    } else if (input == (3 + numPeople)) {
+                        editCompleted(todoList, index);
+                    } else if (input == (4 + numPeople)) {
+                        System.out.println("TODO editDueDate");
+                        //editDueDate(todoList, index);
+                    } else if (input == (5 + numPeople)) {
+                        System.out.println("TODO editPriority");
+                        //editPriority(todoList, index);
+                    } else {
+                        break;
+                    }
                 }
             }
         }
